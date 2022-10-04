@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorSystem", "StorSystem.csproj", "{FAAE3463-88EC-44D2-BD16-B1E36553635E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FAAE3463-88EC-44D2-BD16-B1E36553635E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAAE3463-88EC-44D2-BD16-B1E36553635E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAAE3463-88EC-44D2-BD16-B1E36553635E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAAE3463-88EC-44D2-BD16-B1E36553635E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {63242BA0-B159-4632-92DA-202D36722E1D}
+	EndGlobalSection
+EndGlobal

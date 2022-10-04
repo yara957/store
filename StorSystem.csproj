@@ -1,0 +1,1279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FAAE3463-88EC-44D2-BD16-B1E36553635E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>StorSystem</RootNamespace>
+    <AssemblyName>StorSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.Desktop.v22.1, Version=22.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v22.1, Version=22.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Drawing.v22.1, Version=22.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v22.1.Core, Version=22.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v22.1, Version=22.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\Interface\ClscScurUserInterface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\Interface\ClscScurUserInterface.designer.cs">
+      <DependentUpon>ClscScurUserInterface.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Interface\MyFlowLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Core\Permessions.cs" />
+    <Compile Include="dto\m_product.cs" />
+    <Compile Include="dto\m_store.cs" />
+    <Compile Include="dto\m_stor_prods.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Init\Init_usrs_prm_001.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Init\Init_usrs_prm_001.Designer.cs">
+      <DependentUpon>Init_usrs_prm_001.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Init\Init_cmpny_001.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Init\Init_cmpny_001.Designer.cs">
+      <DependentUpon>Init_cmpny_001.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Init\Init_ctgry_003.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Init\Init_ctgry_003.Designer.cs">
+      <DependentUpon>Init_ctgry_003.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Init\Init_prd_001.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Init\Init_prd_001.Designer.cs">
+      <DependentUpon>Init_prd_001.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Init\Init_Stor_004.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Init\Init_Stor_004.Designer.cs">
+      <DependentUpon>Init_Stor_004.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Init\Init_typs_002.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Init\Init_typs_002.Designer.cs">
+      <DependentUpon>Init_typs_002.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Init\std_actvtis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Init\std_actvtis.Designer.cs">
+      <DependentUpon>std_actvtis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Init\trnrs_window.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Init\trnrs_window.Designer.cs">
+      <DependentUpon>trnrs_window.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Qry\Qry_ordrs_001.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Qry\Qry_ordrs_001.Designer.cs">
+      <DependentUpon>Qry_ordrs_001.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="stors\LogInUsr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="stors\LogInUsr.Designer.cs">
+      <DependentUpon>LogInUsr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="stors\oper_str_006.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="stors\oper_str_006.Designer.cs">
+      <DependentUpon>oper_str_006.cs</DependentUpon>
+    </Compile>
+    <Compile Include="stors\StorMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="stors\StorMain.Designer.cs">
+      <DependentUpon>StorMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysData\Company.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysData\DataBaseModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBaseModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysData\DataBaseModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysData\DataBaseModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBaseModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="SysData\Product.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysData\ProductType.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysData\std_actvties.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysData\Stor.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysData\storOrder.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysData\StorOrderDetail.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysData\StorProduct.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysData\SysFlag.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysData\trnr.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysData\User.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysData\VOrdrProduct.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysData\VStorOrdrsOnly.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysData\VStorProduct.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tst\tstst.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tst\tstst.Designer.cs">
+      <DependentUpon>tstst.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Core\Interface\ClscScurUserInterface.resx">
+      <DependentUpon>ClscScurUserInterface.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Init\Init_usrs_prm_001.resx">
+      <DependentUpon>Init_usrs_prm_001.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Init\Init_cmpny_001.resx">
+      <DependentUpon>Init_cmpny_001.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Init\Init_ctgry_003.resx">
+      <DependentUpon>Init_ctgry_003.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Init\Init_prd_001.resx">
+      <DependentUpon>Init_prd_001.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Init\Init_Stor_004.resx">
+      <DependentUpon>Init_Stor_004.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Init\Init_typs_002.resx">
+      <DependentUpon>Init_typs_002.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Init\std_actvtis.resx">
+      <DependentUpon>std_actvtis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Init\trnrs_window.resx">
+      <DependentUpon>trnrs_window.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Qry\Qry_ordrs_001.resx">
+      <DependentUpon>Qry_ordrs_001.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="stors\LogInUsr.resx">
+      <DependentUpon>LogInUsr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="stors\oper_str_006.resx">
+      <DependentUpon>oper_str_006.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="stors\StorMain.resx">
+      <DependentUpon>StorMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EntityDeploy Include="SysData\DataBaseModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DataBaseModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Resources\Thumbs.db" />
+    <None Include="SysData\DataBaseModel.edmx.diagram">
+      <DependentUpon>DataBaseModel.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aperture_12x12.png" />
+    <None Include="Resources\aperture_8x8.png" />
+    <None Include="Resources\AnimatedImage_Cancel.gif" />
+    <None Include="Resources\AnimatedImage.gif" />
+    <None Include="Resources\ampersand_19x32.png" />
+    <None Include="Resources\ampersand_14x24.png" />
+    <None Include="Resources\ampersand_10x16.png" />
+    <None Include="Resources\ampersand_7x12.png" />
+    <None Include="Resources\ampersand_5x8.png" />
+    <None Include="Resources\add_new_black_48.png" />
+    <None Include="Resources\add_new_black_24.png" />
+    <None Include="Resources\012-maps-and-flags.png" />
+    <None Include="Resources\007-maps-and-flags.png" />
+    <None Include="Resources\x_alt_32x32.png" />
+    <None Include="Resources\x_alt_24x24.png" />
+    <None Include="Resources\x_alt_16x16.png" />
+    <None Include="Resources\x_alt_12x12.png" />
+    <None Include="Resources\x_alt_8x8.png" />
+    <None Include="Resources\x_28x28.png" />
+    <None Include="Resources\x_21x21.png" />
+    <None Include="Resources\x_14x14.png" />
+    <None Include="Resources\x_11x11.png" />
+    <None Include="Resources\x_7x7.png" />
+    <None Include="Resources\wrench_32x32.png" />
+    <None Include="Resources\wrench_24x24.png" />
+    <None Include="Resources\wrench_16x16.png" />
+    <None Include="Resources\wrench_12x12.png" />
+    <None Include="Resources\wrench_8x8.png" />
+    <None Include="Resources\web2login.jpg" />
+    <None Include="Resources\WarningImage.png" />
+    <None Include="Resources\wand32.png" />
+    <None Include="Resources\waiting_bar_001.gif" />
+    <None Include="Resources\volume_mute_32x24.png" />
+    <None Include="Resources\volume_mute_24x18.png" />
+    <None Include="Resources\volume_mute_16x12.png" />
+    <None Include="Resources\volume_mute_12x9.png" />
+    <None Include="Resources\volume_mute_8x6.png" />
+    <None Include="Resources\volume_32x24.png" />
+    <None Include="Resources\volume_24x18.png" />
+    <None Include="Resources\volume_16x12.png" />
+    <None Include="Resources\volume_12x9.png" />
+    <None Include="Resources\volume_8x6.png" />
+    <None Include="Resources\userplus32.png" />
+    <None Include="Resources\userminus32.png" />
+    <None Include="Resources\user_24x32.png" />
+    <None Include="Resources\user_18x24.png" />
+    <None Include="Resources\user_12x16.png" />
+    <None Include="Resources\user_9x12.png" />
+    <None Include="Resources\user_6x8.png" />
+    <None Include="Resources\upload_16x32.png" />
+    <None Include="Resources\upload_12x24.png" />
+    <None Include="Resources\upload_8x16.png" />
+    <None Include="Resources\upload_6x12.png" />
+    <None Include="Resources\upload_4x8.png" />
+    <None Include="Resources\unlocked.png" />
+    <None Include="Resources\unlock_stroke_32x24.png" />
+    <None Include="Resources\unlock_stroke_24x18.png" />
+    <None Include="Resources\unlock_stroke_16x12.png" />
+    <None Include="Resources\unlock_stroke_12x9.png" />
+    <None Include="Resources\unlock_stroke_8x6.png" />
+    <None Include="Resources\unlock_fill_24x32.png" />
+    <None Include="Resources\unlock_fill_18x24.png" />
+    <None Include="Resources\unlock_fill_12x16.png" />
+    <None Include="Resources\unlock_fill_9x12.png" />
+    <None Include="Resources\unlock_fill_6x8.png" />
+    <None Include="Resources\undo_32x32.png" />
+    <None Include="Resources\undo_24x24.png" />
+    <None Include="Resources\undo_16x16.png" />
+    <None Include="Resources\undo_12x12.png" />
+    <None Include="Resources\undo_8x8.png" />
+    <None Include="Resources\umbrella_32x32.png" />
+    <None Include="Resources\umbrella_24x24.png" />
+    <None Include="Resources\umbrella_16x16.png" />
+    <None Include="Resources\umbrella_12x12.png" />
+    <None Include="Resources\umbrella_8x8.png" />
+    <None Include="Resources\trash_stroke_32x32.png" />
+    <None Include="Resources\trash_stroke_24x24.png" />
+    <None Include="Resources\trash_stroke_16x16.png" />
+    <None Include="Resources\trash_stroke_12x12.png" />
+    <None Include="Resources\trash_stroke_8x8.png" />
+    <None Include="Resources\trash_fill_32x32.png" />
+    <None Include="Resources\trash_fill_24x24.png" />
+    <None Include="Resources\trash_fill_16x16.png" />
+    <None Include="Resources\trash_fill_12x12.png" />
+    <None Include="Resources\trash_fill_8x8.png" />
+    <None Include="Resources\transfer_32x24.png" />
+    <None Include="Resources\transfer_24x18.png" />
+    <None Include="Resources\transfer_16x12.png" />
+    <None Include="Resources\transfer_12x9.png" />
+    <None Include="Resources\transfer_8x6.png" />
+    <None Include="Resources\tick 2.png" />
+    <None Include="Resources\tick 1.png" />
+    <None Include="Resources\throbber.gif" />
+    <None Include="Resources\target_32x32.png" />
+    <None Include="Resources\target_24x24.png" />
+    <None Include="Resources\target_16x16.png" />
+    <None Include="Resources\target_12x12.png" />
+    <None Include="Resources\target_8x8.png" />
+    <None Include="Resources\tag_stroke_32x32.png" />
+    <None Include="Resources\tag_stroke_24x24.png" />
+    <None Include="Resources\tag_stroke_16x16.png" />
+    <None Include="Resources\tag_stroke_12x12.png" />
+    <None Include="Resources\tag_stroke_8x8.png" />
+    <None Include="Resources\tag_fill_32x32.png" />
+    <None Include="Resources\tag_fill_24x24.png" />
+    <None Include="Resources\tag_fill_16x16.png" />
+    <None Include="Resources\tag_fill_12x12.png" />
+    <None Include="Resources\tag_fill_8x8.png" />
+    <None Include="Resources\sun_alt_stroke_32x32.png" />
+    <None Include="Resources\sun_alt_stroke_24x24.png" />
+    <None Include="Resources\sun_alt_stroke_16x16.png" />
+    <None Include="Resources\sun_alt_stroke_12x12.png" />
+    <None Include="Resources\sun_alt_stroke_8x8.png" />
+    <None Include="Resources\sun_alt_fill_32x32.png" />
+    <None Include="Resources\sun_alt_fill_24x24.png" />
+    <None Include="Resources\sun_alt_fill_16x16.png" />
+    <None Include="Resources\sun_alt_fill_12x12.png" />
+    <None Include="Resources\sun_alt_fill_8x8.png" />
+    <None Include="Resources\sun_32x32.png" />
+    <None Include="Resources\sun_24x24.png" />
+    <None Include="Resources\sun_16x16.png" />
+    <None Include="Resources\sun_12x12.png" />
+    <None Include="Resources\sun_8x8.png" />
+    <None Include="Resources\stop32.png" />
+    <None Include="Resources\stop_32x32.png" />
+    <None Include="Resources\stop_24x24.png" />
+    <None Include="Resources\stop_16x16.png" />
+    <None Include="Resources\stop_12x12.png" />
+    <None Include="Resources\stop_8x8.png" />
+    <None Include="Resources\steering_wheel_32x32.png" />
+    <None Include="Resources\steering_wheel_24x24.png" />
+    <None Include="Resources\steering_wheel_16x16.png" />
+    <None Include="Resources\steering_wheel_12x12.png" />
+    <None Include="Resources\steering_wheel_8x8.png" />
+    <None Include="Resources\star_32x32.png" />
+    <None Include="Resources\star_24x24.png" />
+    <None Include="Resources\star_16x16.png" />
+    <None Include="Resources\star_12x12.png" />
+    <None Include="Resources\star_8x8.png" />
+    <None Include="Resources\star.png" />
+    <None Include="Resources\spin_alt_32x32.png" />
+    <None Include="Resources\spin_alt_24x24.png" />
+    <None Include="Resources\spin_alt_16x16.png" />
+    <None Include="Resources\spin_alt_12x12.png" />
+    <None Include="Resources\spin_alt_8x8.png" />
+    <None Include="Resources\spin_28x32.png" />
+    <None Include="Resources\spin_21x24.png" />
+    <None Include="Resources\spin_14x16.png" />
+    <None Include="Resources\spin_11x12.png" />
+    <None Include="Resources\spin_7x8.png" />
+    <None Include="Resources\share_32x32.png" />
+    <None Include="Resources\share_24x24.png" />
+    <None Include="Resources\share_16x16.png" />
+    <None Include="Resources\share_12x12.png" />
+    <None Include="Resources\share_8x8.png" />
+    <None Include="Resources\search32.png" />
+    <None Include="Resources\search_black_48.png" />
+    <None Include="Resources\search_black_24.png" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\scissors32.png" />
+    <None Include="Resources\save_black_48.png" />
+    <None Include="Resources\save_black_24.png" />
+    <None Include="Resources\rss_alt_32x32.png" />
+    <None Include="Resources\rss_alt_24x24.png" />
+    <None Include="Resources\rss_alt_16x16.png" />
+    <None Include="Resources\rss_alt_12x12.png" />
+    <None Include="Resources\rss_alt_8x8.png" />
+    <None Include="Resources\rss_32x32.png" />
+    <None Include="Resources\rss_24x24.png" />
+    <None Include="Resources\rss_16x16.png" />
+    <None Include="Resources\rss_12x12.png" />
+    <None Include="Resources\rss_8x8.png" />
+    <None Include="Resources\right_quote_alt_32x32.png" />
+    <None Include="Resources\right_quote_alt_24x24.png" />
+    <None Include="Resources\right_quote_alt_16x16.png" />
+    <None Include="Resources\right_quote_alt_12x12.png" />
+    <None Include="Resources\right_quote_alt_8x8.png" />
+    <None Include="Resources\right_quote_32x32.png" />
+    <None Include="Resources\right_quote_24x24.png" />
+    <None Include="Resources\right_quote_16x16.png" />
+    <None Include="Resources\right_quote_12x12.png" />
+    <None Include="Resources\right_quote_8x8.png" />
+    <None Include="Resources\reload_alt1_24x28.png" />
+    <None Include="Resources\reload_alt1_18x21.png" />
+    <None Include="Resources\reload_alt1_12x14.png" />
+    <None Include="Resources\reload_alt1_9x11.png" />
+    <None Include="Resources\reload_alt1_6x7.png" />
+    <None Include="Resources\reload_24x28.png" />
+    <None Include="Resources\reload_18x21.png" />
+    <None Include="Resources\reload_12x14.png" />
+    <None Include="Resources\reload_9x11.png" />
+    <None Include="Resources\reload_6x7.png" />
+    <None Include="Resources\read_more_32x32.png" />
+    <None Include="Resources\read_more_24x24.png" />
+    <None Include="Resources\read_more_16x16.png" />
+    <None Include="Resources\read_more_12x12.png" />
+    <None Include="Resources\read_more_8x8.png" />
+    <None Include="Resources\rain_32x28.png" />
+    <None Include="Resources\rain_24x21.png" />
+    <None Include="Resources\rain_16x14.png" />
+    <None Include="Resources\rain_12x11.png" />
+    <None Include="Resources\rain_8x7.png" />
+    <None Include="Resources\question_mark_16x32.png" />
+    <None Include="Resources\question_mark_12x24.png" />
+    <None Include="Resources\question_mark_8x16.png" />
+    <None Include="Resources\question_mark_6x12.png" />
+    <None Include="Resources\question_mark_4x8.png" />
+    <None Include="Resources\print_white_48.png" />
+    <None Include="Resources\print_white_24.png" />
+    <None Include="Resources\print_black_48.png" />
+    <None Include="Resources\print_black_24.png" />
+    <None Include="Resources\prev 2.png" />
+    <None Include="Resources\prev 1.png" />
+    <None Include="Resources\pointer.png" />
+    <None Include="Resources\plus32.png" />
+    <None Include="Resources\plus_alt_32x32.png" />
+    <None Include="Resources\plus_alt_24x24.png" />
+    <None Include="Resources\plus_alt_16x16.png" />
+    <None Include="Resources\plus_alt_12x12.png" />
+    <None Include="Resources\plus_alt_8x8.png" />
+    <None Include="Resources\plus_32x32.png" />
+    <None Include="Resources\plus_24x24.png" />
+    <None Include="Resources\plus_16x16.png" />
+    <None Include="Resources\plus_12x12.png" />
+    <None Include="Resources\plus_8x8.png" />
+    <None Include="Resources\plus.png" />
+    <None Include="Resources\play_alt_32x32.png" />
+    <None Include="Resources\play_alt_24x24.png" />
+    <None Include="Resources\play_alt_16x16.png" />
+    <None Include="Resources\play_alt_12x12.png" />
+    <None Include="Resources\play_alt_8x8.png" />
+    <None Include="Resources\play_24x32.png" />
+    <None Include="Resources\play_18x24.png" />
+    <None Include="Resources\play_12x16.png" />
+    <None Include="Resources\play_9x12.png" />
+    <None Include="Resources\play_6x8.png" />
+    <None Include="Resources\pin_32x32.png" />
+    <None Include="Resources\pin_24x24.png" />
+    <None Include="Resources\pin_16x16.png" />
+    <None Include="Resources\pin_12x12.png" />
+    <None Include="Resources\pin_8x8.png" />
+    <None Include="Resources\pilcrow_24x32.png" />
+    <None Include="Resources\pilcrow_18x24.png" />
+    <None Include="Resources\pilcrow_12x16.png" />
+    <None Include="Resources\pilcrow_9x12.png" />
+    <None Include="Resources\pilcrow_6x8.png" />
+    <None Include="Resources\picture.png" />
+    <None Include="Resources\pen_alt2_32x32.png" />
+    <None Include="Resources\pen_alt2_24x24.png" />
+    <None Include="Resources\pen_alt2_16x16.png" />
+    <None Include="Resources\pen_alt2_12x12.png" />
+    <None Include="Resources\pen_alt2_8x8.png" />
+    <None Include="Resources\pen_alt_stroke_32x32.png" />
+    <None Include="Resources\pen_alt_stroke_24x24.png" />
+    <None Include="Resources\pen_alt_stroke_16x16.png" />
+    <None Include="Resources\pen_alt_stroke_12x12.png" />
+    <None Include="Resources\pen_alt_stroke_8x8.png" />
+    <None Include="Resources\pen_alt_fill_32x32.png" />
+    <None Include="Resources\pen_alt_fill_24x24.png" />
+    <None Include="Resources\pen_alt_fill_16x16.png" />
+    <None Include="Resources\pen_alt_fill_12x12.png" />
+    <None Include="Resources\pen_alt_fill_8x8.png" />
+    <None Include="Resources\pen_32x32.png" />
+    <None Include="Resources\pen_24x24.png" />
+    <None Include="Resources\pen_16x16.png" />
+    <None Include="Resources\pen_12x12.png" />
+    <None Include="Resources\pen_8x8.png" />
+    <None Include="Resources\pause_24x32.png" />
+    <None Include="Resources\pause_18x24.png" />
+    <None Include="Resources\pause_12x16.png" />
+    <None Include="Resources\pause_9x12.png" />
+    <None Include="Resources\pause_6x8.png" />
+    <None Include="Resources\notepencil32.png" />
+    <None Include="Resources\note32.png" />
+    <None Include="Resources\next 2.png" />
+    <None Include="Resources\next 1.png" />
+    <None Include="Resources\new_window_32x32.png" />
+    <None Include="Resources\new_window_24x24.png" />
+    <None Include="Resources\new_window_16x16.png" />
+    <None Include="Resources\new_window_12x12.png" />
+    <None Include="Resources\new_window_8x8.png" />
+    <None Include="Resources\navigate-left48.png" />
+    <None Include="Resources\navigate-left16.png" />
+    <None Include="Resources\navigate-down48.png" />
+    <None Include="Resources\movie_32x32.png" />
+    <None Include="Resources\movie_24x24.png" />
+    <None Include="Resources\movie_16x16.png" />
+    <None Include="Resources\movie_12x12.png" />
+    <None Include="Resources\movie_8x8.png" />
+    <None Include="Resources\move_vertical_alt2_32x32.png" />
+    <None Include="Resources\move_vertical_alt2_24x24.png" />
+    <None Include="Resources\move_vertical_alt2_16x16.png" />
+    <None Include="Resources\move_vertical_alt2_12x12.png" />
+    <None Include="Resources\move_vertical_alt2_8x8.png" />
+    <None Include="Resources\move_vertical_alt1_12x32.png" />
+    <None Include="Resources\move_vertical_alt1_9x24.png" />
+    <None Include="Resources\move_vertical_alt1_6x16.png" />
+    <None Include="Resources\move_vertical_alt1_5x12.png" />
+    <None Include="Resources\move_vertical_alt1_3x8.png" />
+    <None Include="Resources\move_vertical_12x32.png" />
+    <None Include="Resources\move_vertical_9x24.png" />
+    <None Include="Resources\move_vertical_6x16.png" />
+    <None Include="Resources\move_vertical_5x12.png" />
+    <None Include="Resources\move_vertical_3x8.png" />
+    <None Include="Resources\move_horizontal_alt2_32x32.png" />
+    <None Include="Resources\move_horizontal_alt2_24x24.png" />
+    <None Include="Resources\move_horizontal_alt2_16x16.png" />
+    <None Include="Resources\move_horizontal_alt2_12x12.png" />
+    <None Include="Resources\move_horizontal_alt2_8x8.png" />
+    <None Include="Resources\move_horizontal_alt1_12x32.png" />
+    <None Include="Resources\move_horizontal_alt1_9x24.png" />
+    <None Include="Resources\move_horizontal_alt1_6x16.png" />
+    <None Include="Resources\move_horizontal_alt1_5x12.png" />
+    <None Include="Resources\move_horizontal_alt1_3x8.png" />
+    <None Include="Resources\move_horizontal_12x32.png" />
+    <None Include="Resources\move_horizontal_9x24.png" />
+    <None Include="Resources\move_horizontal_6x16.png" />
+    <None Include="Resources\move_horizontal_5x12.png" />
+    <None Include="Resources\move_horizontal_3x8.png" />
+    <None Include="Resources\move_alt2_32x32.png" />
+    <None Include="Resources\move_alt2_24x24.png" />
+    <None Include="Resources\move_alt2_16x16.png" />
+    <None Include="Resources\move_alt2_12x12.png" />
+    <None Include="Resources\move_alt2_8x8.png" />
+    <None Include="Resources\move_alt1_32x32.png" />
+    <None Include="Resources\move_alt1_24x24.png" />
+    <None Include="Resources\move_alt1_16x16.png" />
+    <None Include="Resources\move_alt1_12x12.png" />
+    <None Include="Resources\move_alt1_8x8.png" />
+    <None Include="Resources\move_32x32.png" />
+    <None Include="Resources\move_24x24.png" />
+    <None Include="Resources\move_16x16.png" />
+    <None Include="Resources\move_12x12.png" />
+    <None Include="Resources\move_8x8.png" />
+    <None Include="Resources\moon_stroke_32x32.png" />
+    <None Include="Resources\moon_stroke_24x24.png" />
+    <None Include="Resources\moon_stroke_16x16.png" />
+    <None Include="Resources\moon_stroke_12x12.png" />
+    <None Include="Resources\moon_stroke_8x8.png" />
+    <None Include="Resources\moon_fill_32x32.png" />
+    <None Include="Resources\moon_fill_24x24.png" />
+    <None Include="Resources\moon_fill_16x16.png" />
+    <None Include="Resources\moon_fill_12x12.png" />
+    <None Include="Resources\moon_fill_8x8.png" />
+    <None Include="Resources\minus32.png" />
+    <None Include="Resources\minus_alt_32x32.png" />
+    <None Include="Resources\minus_alt_24x24.png" />
+    <None Include="Resources\minus_alt_16x16.png" />
+    <None Include="Resources\minus_alt_12x12.png" />
+    <None Include="Resources\minus_alt_8x8.png" />
+    <None Include="Resources\minus_32x8.png" />
+    <None Include="Resources\minus_24x6.png" />
+    <None Include="Resources\minus_16x4.png" />
+    <None Include="Resources\minus_12x3.png" />
+    <None Include="Resources\minus_8x2.png" />
+    <None Include="Resources\minus.png" />
+    <None Include="Resources\mic_24x32.png" />
+    <None Include="Resources\mic_18x24.png" />
+    <None Include="Resources\mic_12x16.png" />
+    <None Include="Resources\mic_9x12.png" />
+    <None Include="Resources\mic_6x8.png" />
+    <None Include="Resources\map_pin_stroke_32x32.png" />
+    <None Include="Resources\map_pin_stroke_24x24.png" />
+    <None Include="Resources\map_pin_stroke_16x16.png" />
+    <None Include="Resources\map_pin_stroke_12x12.png" />
+    <None Include="Resources\map_pin_stroke_8x8.png" />
+    <None Include="Resources\map_pin_fill_32x32.png" />
+    <None Include="Resources\map_pin_fill_24x24.png" />
+    <None Include="Resources\map_pin_fill_16x16.png" />
+    <None Include="Resources\map_pin_fill_12x12.png" />
+    <None Include="Resources\map_pin_fill_8x8.png" />
+    <None Include="Resources\map_pin_alt_16x32.png" />
+    <None Include="Resources\map_pin_alt_12x24.png" />
+    <None Include="Resources\map_pin_alt_8x16.png" />
+    <None Include="Resources\map_pin_alt_6x12.png" />
+    <None Include="Resources\map_pin_alt_4x8.png" />
+    <None Include="Resources\mail_alt_32x24.png" />
+    <None Include="Resources\mail_alt_24x18.png" />
+    <None Include="Resources\mail_alt_16x12.png" />
+    <None Include="Resources\mail_alt_12x9.png" />
+    <None Include="Resources\mail_alt_8x6.png" />
+    <None Include="Resources\mail_32x24.png" />
+    <None Include="Resources\mail_24x18.png" />
+    <None Include="Resources\mail_16x12.png" />
+    <None Include="Resources\mail_12x9.png" />
+    <None Include="Resources\mail_8x6.png" />
+    <None Include="Resources\magnifying_glass_alt_32x32.png" />
+    <None Include="Resources\magnifying_glass_alt_24x24.png" />
+    <None Include="Resources\magnifying_glass_alt_16x16.png" />
+    <None Include="Resources\magnifying_glass_alt_12x12.png" />
+    <None Include="Resources\magnifying_glass_alt_8x8.png" />
+    <None Include="Resources\magnifying_glass_32x32.png" />
+    <None Include="Resources\magnifying_glass_24x24.png" />
+    <None Include="Resources\magnifying_glass_16x16.png" />
+    <None Include="Resources\magnifying_glass_12x12.png" />
+    <None Include="Resources\magnifying_glass_8x8.png" />
+    <None Include="Resources\loop_alt4_32x24.png" />
+    <None Include="Resources\loop_alt4_24x18.png" />
+    <None Include="Resources\loop_alt4_16x12.png" />
+    <None Include="Resources\loop_alt4_12x9.png" />
+    <None Include="Resources\loop_alt4_8x6.png" />
+    <None Include="Resources\loop_alt3_32x24.png" />
+    <None Include="Resources\loop_alt3_24x18.png" />
+    <None Include="Resources\loop_alt3_16x12.png" />
+    <None Include="Resources\loop_alt3_12x9.png" />
+    <None Include="Resources\loop_alt3_8x6.png" />
+    <None Include="Resources\loop_alt2_32x28.png" />
+    <None Include="Resources\loop_alt2_24x21.png" />
+    <None Include="Resources\loop_alt2_16x14.png" />
+    <None Include="Resources\loop_alt2_12x11.png" />
+    <None Include="Resources\loop_alt2_8x7.png" />
+    <None Include="Resources\loop_alt1_32x24.png" />
+    <None Include="Resources\loop_alt1_24x18.png" />
+    <None Include="Resources\loop_alt1_16x12.png" />
+    <None Include="Resources\loop_alt1_12x9.png" />
+    <None Include="Resources\loop_alt1_8x6.png" />
+    <None Include="Resources\loop_32x32.png" />
+    <None Include="Resources\loop_24x24.png" />
+    <None Include="Resources\loop_16x16.png" />
+    <None Include="Resources\loop_12x12.png" />
+    <None Include="Resources\loop_8x8.png" />
+    <None Include="Resources\locked.png" />
+    <None Include="Resources\lock_stroke_24x32.png" />
+    <None Include="Resources\lock_stroke_18x24.png" />
+    <None Include="Resources\lock_stroke_12x16.png" />
+    <None Include="Resources\lock_stroke_9x12.png" />
+    <None Include="Resources\lock_stroke_6x8.png" />
+    <None Include="Resources\lock_fill_24x32.png" />
+    <None Include="Resources\lock_fill_18x24.png" />
+    <None Include="Resources\lock_fill_12x16.png" />
+    <None Include="Resources\lock_fill_9x12.png" />
+    <None Include="Resources\lock_fill_6x8.png" />
+    <None Include="Resources\loadinfo.net.gif" />
+    <None Include="Resources\loadinfo.net%284%29.gif" />
+    <None Include="Resources\loadinfo.net%283%29.gif" />
+    <None Include="Resources\loadinfo.net%282%29.gif" />
+    <None Include="Resources\list_32x28.png" />
+    <None Include="Resources\list_24x21.png" />
+    <None Include="Resources\list_16x14.png" />
+    <None Include="Resources\list_12x11.png" />
+    <None Include="Resources\list_8x7.png" />
+    <None Include="Resources\link_32x32.png" />
+    <None Include="Resources\link_24x24.png" />
+    <None Include="Resources\link_16x16.png" />
+    <None Include="Resources\link_12x12.png" />
+    <None Include="Resources\link_8x8.png" />
+    <None Include="Resources\lightbulb_20x32.png" />
+    <None Include="Resources\lightbulb_15x24.png" />
+    <None Include="Resources\lightbulb_10x16.png" />
+    <None Include="Resources\lightbulb_8x12.png" />
+    <None Include="Resources\lightbulb_5x8.png" />
+    <None Include="Resources\left_quote_alt_32x32.png" />
+    <None Include="Resources\left_quote_alt_24x24.png" />
+    <None Include="Resources\left_quote_alt_16x16.png" />
+    <None Include="Resources\left_quote_alt_12x12.png" />
+    <None Include="Resources\left_quote_alt_8x8.png" />
+    <None Include="Resources\left_quote_32x32.png" />
+    <None Include="Resources\left_quote_24x24.png" />
+    <None Include="Resources\left_quote_16x16.png" />
+    <None Include="Resources\left_quote_12x12.png" />
+    <None Include="Resources\left_quote_8x8.png" />
+    <None Include="Resources\layers_alt_32x32.png" />
+    <None Include="Resources\layers_alt_24x24.png" />
+    <None Include="Resources\layers_alt_16x16.png" />
+    <None Include="Resources\layers_alt_12x12.png" />
+    <None Include="Resources\layers_alt_8x8.png" />
+    <None Include="Resources\layers_32x28.png" />
+    <None Include="Resources\layers_24x21.png" />
+    <None Include="Resources\layers_16x14.png" />
+    <None Include="Resources\layers_12x11.png" />
+    <None Include="Resources\layers_8x7.png" />
+    <None Include="Resources\last_32x32.png" />
+    <None Include="Resources\last_24x24.png" />
+    <None Include="Resources\last_16x16.png" />
+    <None Include="Resources\last_12x12.png" />
+    <None Include="Resources\last_8x8.png" />
+    <None Include="Resources\key_stroke_32x32.png" />
+    <None Include="Resources\key_stroke_24x24.png" />
+    <None Include="Resources\key_stroke_16x16.png" />
+    <None Include="Resources\key_stroke_12x12.png" />
+    <None Include="Resources\key_stroke_8x8.png" />
+    <None Include="Resources\key_fill_32x32.png" />
+    <None Include="Resources\key_fill_24x24.png" />
+    <None Include="Resources\key_fill_16x16.png" />
+    <None Include="Resources\key_fill_12x12.png" />
+    <None Include="Resources\key_fill_8x8.png" />
+    <None Include="Resources\iphone_24x32.png" />
+    <None Include="Resources\iphone_18x24.png" />
+    <None Include="Resources\iphone_12x16.png" />
+    <None Include="Resources\iphone_9x12.png" />
+    <None Include="Resources\iphone_6x8.png" />
+    <None Include="Resources\InformationImage.png" />
+    <None Include="Resources\info_16x32.png" />
+    <None Include="Resources\info_12x24.png" />
+    <None Include="Resources\info_8x16.png" />
+    <None Include="Resources\info_6x12.png" />
+    <None Include="Resources\info_4x8.png" />
+    <None Include="Resources\import_export_black_48.png" />
+    <None Include="Resources\import_export_black_24.png" />
+    <None Include="Resources\image_32x32.png" />
+    <None Include="Resources\image_24x24.png" />
+    <None Include="Resources\image_16x16.png" />
+    <None Include="Resources\image_12x12.png" />
+    <None Include="Resources\image_8x8.png" />
+    <None Include="Resources\home_32x32.png" />
+    <None Include="Resources\home_24x24.png" />
+    <None Include="Resources\home_16x16.png" />
+    <None Include="Resources\home_12x12.png" />
+    <None Include="Resources\home_8x8.png" />
+    <None Include="Resources\heart_stroke_32x28.png" />
+    <None Include="Resources\heart_stroke_24x21.png" />
+    <None Include="Resources\heart_stroke_16x14.png" />
+    <None Include="Resources\heart_stroke_12x11.png" />
+    <None Include="Resources\heart_stroke_8x7.png" />
+    <None Include="Resources\heart_fill_32x38.png" />
+    <None Include="Resources\heart_fill_24x21.png" />
+    <None Include="Resources\heart_fill_16x14.png" />
+    <None Include="Resources\heart_fill_12x11.png" />
+    <None Include="Resources\heart_fill_8x7.png" />
+    <None Include="Resources\heaphones_32x28.png" />
+    <None Include="Resources\heaphones_24x21.png" />
+    <None Include="Resources\heaphones_16x14.png" />
+    <None Include="Resources\heaphones_12x11.png" />
+    <None Include="Resources\heaphones_8x7.png" />
+    <None Include="Resources\hash_28x32.png" />
+    <None Include="Resources\hash_21x24.png" />
+    <None Include="Resources\hash_14x16.png" />
+    <None Include="Resources\hash_11x12.png" />
+    <None Include="Resources\hash_7x8.png" />
+    <None Include="Resources\fullscreen_exit_alt_32x32.png" />
+    <None Include="Resources\fullscreen_exit_alt_24x24.png" />
+    <None Include="Resources\fullscreen_exit_alt_16x16.png" />
+    <None Include="Resources\fullscreen_exit_alt_12x12.png" />
+    <None Include="Resources\fullscreen_exit_alt_8x8.png" />
+    <None Include="Resources\fullscreen_exit_32x32.png" />
+    <None Include="Resources\fullscreen_exit_24x24.png" />
+    <None Include="Resources\fullscreen_exit_16x16.png" />
+    <None Include="Resources\fullscreen_exit_12x12.png" />
+    <None Include="Resources\fullscreen_exit_8x8.png" />
+    <None Include="Resources\fullscreen_alt_32x32.png" />
+    <None Include="Resources\fullscreen_alt_24x24.png" />
+    <None Include="Resources\fullscreen_alt_16x16.png" />
+    <None Include="Resources\fullscreen_alt_12x12.png" />
+    <None Include="Resources\fullscreen_alt_8x8.png" />
+    <None Include="Resources\fullscreen_32x32.png" />
+    <None Include="Resources\fullscreen_24x24.png" />
+    <None Include="Resources\fullscreen_16x16.png" />
+    <None Include="Resources\fullscreen_12x12.png" />
+    <None Include="Resources\fullscreen_8x8.png" />
+    <None Include="Resources\fork_28x32.png" />
+    <None Include="Resources\fork_21x24.png" />
+    <None Include="Resources\fork_14x16.png" />
+    <None Include="Resources\fork_11x12.png" />
+    <None Include="Resources\fork_7x8.png" />
+    <None Include="Resources\folder_stroke_32x32.png" />
+    <None Include="Resources\folder_stroke_24x24.png" />
+    <None Include="Resources\folder_stroke_16x16.png" />
+    <None Include="Resources\folder_stroke_12x12.png" />
+    <None Include="Resources\folder_stroke_8x8.png" />
+    <None Include="Resources\folder_fill_32x32.png" />
+    <None Include="Resources\folder_fill_24x24.png" />
+    <None Include="Resources\folder_fill_16x16.png" />
+    <None Include="Resources\folder_fill_12x12.png" />
+    <None Include="Resources\folder_fill_8x8.png" />
+    <None Include="Resources\first_32x32.png" />
+    <None Include="Resources\first_24x24.png" />
+    <None Include="Resources\first_16x16.png" />
+    <None Include="Resources\first_12x12.png" />
+    <None Include="Resources\first_8x8.png" />
+    <None Include="Resources\filter_waiting_bar_small.gif" />
+    <None Include="Resources\filter_list_black_48.png" />
+    <None Include="Resources\filter_list_black_24.png" />
+    <None Include="Resources\FIL1205.PNG" />
+    <None Include="Resources\eyedropper_32x32.png" />
+    <None Include="Resources\eyedropper_24x24.png" />
+    <None Include="Resources\eyedropper_16x16.png" />
+    <None Include="Resources\eyedropper_12x12.png" />
+    <None Include="Resources\eyedropper_8x8.png" />
+    <None Include="Resources\eye_32x24.png" />
+    <None Include="Resources\eye_24x18.png" />
+    <None Include="Resources\eye_16x12.png" />
+    <None Include="Resources\eye_12x9.png" />
+    <None Include="Resources\eye_8x6.png" />
+    <None Include="Resources\exchange32.png" />
+    <None Include="Resources\ErrorImage.png" />
+    <None Include="Resources\error 2.png" />
+    <None Include="Resources\error 1.png" />
+    <None Include="Resources\equalizer_32x32.png" />
+    <None Include="Resources\equalizer_24x24.png" />
+    <None Include="Resources\equalizer_16x16.png" />
+    <None Include="Resources\equalizer_12x12.png" />
+    <None Include="Resources\equalizer_8x8.png" />
+    <None Include="Resources\emadLogo.png" />
+    <None Include="Resources\eject_32x32.png" />
+    <None Include="Resources\eject_24x24.png" />
+    <None Include="Resources\eject_16x16.png" />
+    <None Include="Resources\eject_12x12.png" />
+    <None Include="Resources\eject_8x8.png" />
+    <None Include="Resources\edit_black_48.png" />
+    <None Include="Resources\edit_black_24.png" />
+    <None Include="Resources\download_16x32.png" />
+    <None Include="Resources\download_12x24.png" />
+    <None Include="Resources\download_8x16.png" />
+    <None Include="Resources\download_6x12.png" />
+    <None Include="Resources\download_4x8.png" />
+    <None Include="Resources\done_black_48.png" />
+    <None Include="Resources\done_black_24.png" />
+    <None Include="Resources\document_stroke_32x32.png" />
+    <None Include="Resources\document_stroke_24x24.png" />
+    <None Include="Resources\document_stroke_16x16.png" />
+    <None Include="Resources\document_stroke_12x12.png" />
+    <None Include="Resources\document_stroke_8x8.png" />
+    <None Include="Resources\document_fill_32x32.png" />
+    <None Include="Resources\document_fill_24x24.png" />
+    <None Include="Resources\document_fill_16x16.png" />
+    <None Include="Resources\document_fill_12x12.png" />
+    <None Include="Resources\document_fill_8x8.png" />
+    <None Include="Resources\document_alt_stroke_24x32.png" />
+    <None Include="Resources\document_alt_stroke_18x24.png" />
+    <None Include="Resources\document_alt_stroke_12x16.png" />
+    <None Include="Resources\document_alt_stroke_9x12.png" />
+    <None Include="Resources\document_alt_stroke_6x8.png" />
+    <None Include="Resources\document_alt_fill_24x32.png" />
+    <None Include="Resources\document_alt_fill_18x24.png" />
+    <None Include="Resources\document_alt_fill_12x16.png" />
+    <None Include="Resources\document_alt_fill_9x12.png" />
+    <None Include="Resources\document_alt_fill_6x8.png" />
+    <None Include="Resources\dial_32x32.png" />
+    <None Include="Resources\dial_24x24.png" />
+    <None Include="Resources\dial_16x16.png" />
+    <None Include="Resources\dial_12x12.png" />
+    <None Include="Resources\dial_8x8.png" />
+    <None Include="Resources\denied_alt_32x32.png" />
+    <None Include="Resources\denied_alt_24x24.png" />
+    <None Include="Resources\denied_alt_16x16.png" />
+    <None Include="Resources\denied_alt_12x12.png" />
+    <None Include="Resources\denied_alt_8x8.png" />
+    <None Include="Resources\denied_32x32.png" />
+    <None Include="Resources\denied_24x24.png" />
+    <None Include="Resources\denied_16x16.png" />
+    <None Include="Resources\denied_12x12.png" />
+    <None Include="Resources\denied_8x8.png" />
+    <None Include="Resources\Customer_Male_Light.png" />
+    <None Include="Resources\curved_arrow_32x24.png" />
+    <None Include="Resources\curved_arrow_24x18.png" />
+    <None Include="Resources\curved_arrow_16x12.png" />
+    <None Include="Resources\curved_arrow_12x9.png" />
+    <None Include="Resources\curved_arrow_8x6.png" />
+    <None Include="Resources\cursor_32x32.png" />
+    <None Include="Resources\cursor_24x24.png" />
+    <None Include="Resources\cursor_16x16.png" />
+    <None Include="Resources\cursor_12x12.png" />
+    <None Include="Resources\cursor_8x8.png" />
+    <None Include="Resources\compass_32x32.png" />
+    <None Include="Resources\compass_24x24.png" />
+    <None Include="Resources\compass_16x16.png" />
+    <None Include="Resources\compass_12x12.png" />
+    <None Include="Resources\compass_8x8.png" />
+    <None Include="Resources\comment_stroke_32x28.png" />
+    <None Include="Resources\comment_stroke_24x21.png" />
+    <None Include="Resources\comment_stroke_16x14.png" />
+    <None Include="Resources\comment_stroke_12x11.png" />
+    <None Include="Resources\comment_stroke_8x7.png" />
+    <None Include="Resources\comment_fill_32x28.png" />
+    <None Include="Resources\comment_fill_24x21.png" />
+    <None Include="Resources\comment_fill_16x14.png" />
+    <None Include="Resources\comment_fill_12x11.png" />
+    <None Include="Resources\comment_fill_8x7.png" />
+    <None Include="Resources\comment_alt3_stroke_28x32.png" />
+    <None Include="Resources\comment_alt3_stroke_21x24.png" />
+    <None Include="Resources\comment_alt3_stroke_14x16.png" />
+    <None Include="Resources\comment_alt3_stroke_11x12.png" />
+    <None Include="Resources\comment_alt3_stroke_7x8.png" />
+    <None Include="Resources\comment_alt3_fill_28x32.png" />
+    <None Include="Resources\comment_alt3_fill_21x24.png" />
+    <None Include="Resources\comment_alt3_fill_14x16.png" />
+    <None Include="Resources\comment_alt3_fill_11x12.png" />
+    <None Include="Resources\comment_alt3_fill_7x8.png" />
+    <None Include="Resources\comment_alt2_stroke_32x24.png" />
+    <None Include="Resources\comment_alt2_stroke_24x18.png" />
+    <None Include="Resources\comment_alt2_stroke_16x12.png" />
+    <None Include="Resources\comment_alt2_stroke_12x9.png" />
+    <None Include="Resources\comment_alt2_stroke_8x6.png" />
+    <None Include="Resources\comment_alt2_fill_24x32.png" />
+    <None Include="Resources\comment_alt2_fill_18x24.png" />
+    <None Include="Resources\comment_alt2_fill_12x16.png" />
+    <None Include="Resources\comment_alt2_fill_9x12.png" />
+    <None Include="Resources\comment_alt2_fill_6x8.png" />
+    <None Include="Resources\comment_alt1_stroke_32x32.png" />
+    <None Include="Resources\comment_alt1_stroke_24x24.png" />
+    <None Include="Resources\comment_alt1_stroke_16x16.png" />
+    <None Include="Resources\comment_alt1_stroke_12x12.png" />
+    <None Include="Resources\comment_alt1_stroke_8x8.png" />
+    <None Include="Resources\comment_alt1_fill_32x32.png" />
+    <None Include="Resources\comment_alt1_fill_24x24.png" />
+    <None Include="Resources\comment_alt1_fill_16x16.png" />
+    <None Include="Resources\comment_alt1_fill_12x12.png" />
+    <None Include="Resources\comment_alt1_fill_8x8.png" />
+    <None Include="Resources\cog_alt_32x32.png" />
+    <None Include="Resources\cog_alt_24x24.png" />
+    <None Include="Resources\cog_alt_16x16.png" />
+    <None Include="Resources\cog_alt_12x12.png" />
+    <None Include="Resources\cog_alt_8x8.png" />
+    <None Include="Resources\cog_32x32.png" />
+    <None Include="Resources\cog_24x24.png" />
+    <None Include="Resources\cog_16x16.png" />
+    <None Include="Resources\cog_12x12.png" />
+    <None Include="Resources\cog_8x8.png" />
+    <None Include="Resources\cloud_upload_32x32.png" />
+    <None Include="Resources\cloud_upload_24x24.png" />
+    <None Include="Resources\cloud_upload_16x16.png" />
+    <None Include="Resources\cloud_upload_12x12.png" />
+    <None Include="Resources\cloud_upload_8x8.png" />
+    <None Include="Resources\cloud_download_32x32.png" />
+    <None Include="Resources\cloud_download_24x24.png" />
+    <None Include="Resources\cloud_download_16x16.png" />
+    <None Include="Resources\cloud_download_12x12.png" />
+    <None Include="Resources\cloud_download_8x8.png" />
+    <None Include="Resources\cloud_32x20.png" />
+    <None Include="Resources\cloud_24x15.png" />
+    <None Include="Resources\cloud_16x10.png" />
+    <None Include="Resources\cloud_12x8.png" />
+    <None Include="Resources\cloud_8x5.png" />
+    <None Include="Resources\clock_32x32.png" />
+    <None Include="Resources\clock_24x24.png" />
+    <None Include="Resources\clock_16x16.png" />
+    <None Include="Resources\clock_12x12.png" />
+    <None Include="Resources\clock_8x8.png" />
+    <None Include="Resources\clear_all_black_24.png" />
+    <None Include="Resources\check32.png" />
+    <None Include="Resources\check_box_black_48.png" />
+    <None Include="Resources\check_box_black_24.png" />
+    <None Include="Resources\check_alt_32x32.png" />
+    <None Include="Resources\check_alt_24x24.png" />
+    <None Include="Resources\check_alt_16x16.png" />
+    <None Include="Resources\check_alt_12x12.png" />
+    <None Include="Resources\check_alt_8x8.png" />
+    <None Include="Resources\check_32x26.png" />
+    <None Include="Resources\check_24x20.png" />
+    <None Include="Resources\check_16x13.png" />
+    <None Include="Resources\check_12x10.png" />
+    <None Include="Resources\check_8x7.png" />
+    <None Include="Resources\chat_alt_stroke_32x32.png" />
+    <None Include="Resources\chat_alt_stroke_24x24.png" />
+    <None Include="Resources\chat_alt_stroke_16x16.png" />
+    <None Include="Resources\chat_alt_stroke_12x12.png" />
+    <None Include="Resources\chat_alt_stroke_8x8.png" />
+    <None Include="Resources\chat_alt_fill_32x32.png" />
+    <None Include="Resources\chat_alt_fill_24x24.png" />
+    <None Include="Resources\chat_alt_fill_16x16.png" />
+    <None Include="Resources\chat_alt_fill_12x12.png" />
+    <None Include="Resources\chat_alt_fill_8x8.png" />
+    <None Include="Resources\chat_32x32.png" />
+    <None Include="Resources\chat_24x24.png" />
+    <None Include="Resources\chat_16x16.png" />
+    <None Include="Resources\chat_12x12.png" />
+    <None Include="Resources\chat_8x8.png" />
+    <None Include="Resources\chart_alt_32x32.png" />
+    <None Include="Resources\chart_alt_24x24.png" />
+    <None Include="Resources\chart_alt_16x16.png" />
+    <None Include="Resources\chart_alt_12x12.png" />
+    <None Include="Resources\chart_alt_8x8.png" />
+    <None Include="Resources\chart_36x36.png" />
+    <None Include="Resources\chart_24x24.png" />
+    <None Include="Resources\chart_16x16.png" />
+    <None Include="Resources\chart_12x12.png" />
+    <None Include="Resources\chart_8x8.png" />
+    <None Include="Resources\cd_32x32.png" />
+    <None Include="Resources\cd_24x24.png" />
+    <None Include="Resources\cd_16x16.png" />
+    <None Include="Resources\cd_12x12.png" />
+    <None Include="Resources\cd_8x8.png" />
+    <None Include="Resources\cancel_black_48.png" />
+    <None Include="Resources\cancel_black_24.png" />
+    <None Include="Resources\camera32.png" />
+    <None Include="Resources\camera_32x32.png" />
+    <None Include="Resources\camera_24x24.png" />
+    <None Include="Resources\camera_16x16.png" />
+    <None Include="Resources\camera_12x12.png" />
+    <None Include="Resources\camera_8x8.png" />
+    <None Include="Resources\calendar_alt_stroke_32x32.png" />
+    <None Include="Resources\calendar_alt_stroke_24x24.png" />
+    <None Include="Resources\calendar_alt_stroke_16x16.png" />
+    <None Include="Resources\calendar_alt_stroke_12x12.png" />
+    <None Include="Resources\calendar_alt_stroke_8x8.png" />
+    <None Include="Resources\calendar_alt_fill_32x32.png" />
+    <None Include="Resources\calendar_alt_fill_24x24.png" />
+    <None Include="Resources\calendar_alt_fill_16x16.png" />
+    <None Include="Resources\calendar_alt_fill_12x12.png" />
+    <None Include="Resources\calendar_alt_fill_8x8.png" />
+    <None Include="Resources\calendar_32x32.png" />
+    <None Include="Resources\calendar_24x24.png" />
+    <None Include="Resources\calendar_16x16.png" />
+    <None Include="Resources\calendar_12x12.png" />
+    <None Include="Resources\calendar_8x8.png" />
+    <None Include="Resources\btn_add.png" />
+    <None Include="Resources\brush_alt_32x32.png" />
+    <None Include="Resources\brush_alt_24x24.png" />
+    <None Include="Resources\brush_alt_16x16.png" />
+    <None Include="Resources\brush_alt_12x12.png" />
+    <None Include="Resources\brush_alt_8x8.png" />
+    <None Include="Resources\brush_32x32.png" />
+    <None Include="Resources\brush_24x24.png" />
+    <None Include="Resources\brush_16x16.png" />
+    <None Include="Resources\brush_12x12.png" />
+    <None Include="Resources\brush_8x8.png" />
+    <None Include="Resources\box_32x32.png" />
+    <None Include="Resources\box_24x24.png" />
+    <None Include="Resources\box_16x16.png" />
+    <None Include="Resources\box_12x12.png" />
+    <None Include="Resources\box_8x8.png" />
+    <None Include="Resources\book_alt2_32x24.png" />
+    <None Include="Resources\book_alt2_24x21.png" />
+    <None Include="Resources\book_alt2_16x14.png" />
+    <None Include="Resources\book_alt2_12x11.png" />
+    <None Include="Resources\book_alt2_8x7.png" />
+    <None Include="Resources\book_alt_32x32.png" />
+    <None Include="Resources\book_alt_24x24.png" />
+    <None Include="Resources\book_alt_16x16.png" />
+    <None Include="Resources\book_alt_12x12.png" />
+    <None Include="Resources\book_alt_8x8.png" />
+    <None Include="Resources\book_32x32.png" />
+    <None Include="Resources\book_32x24.png" />
+    <None Include="Resources\book_24x24.png" />
+    <None Include="Resources\book_24x21.png" />
+    <None Include="Resources\book_16x16.png" />
+    <None Include="Resources\book_16x14.png" />
+    <None Include="Resources\book_12x12.png" />
+    <None Include="Resources\book_12x11.png" />
+    <None Include="Resources\book_8x8.png" />
+    <None Include="Resources\book_8x7.png" />
+    <None Include="Resources\bolt_32x32.png" />
+    <None Include="Resources\bolt_24x24.png" />
+    <None Include="Resources\bolt_16x16.png" />
+    <None Include="Resources\bolt_12x12.png" />
+    <None Include="Resources\bolt_8x8.png" />
+    <None Include="Resources\beaker_alt_16x32.png" />
+    <None Include="Resources\beaker_alt_12x24.png" />
+    <None Include="Resources\beaker_alt_8x16.png" />
+    <None Include="Resources\beaker_alt_6x12.png" />
+    <None Include="Resources\beaker_alt_4x8.png" />
+    <None Include="Resources\beaker_16x32.png" />
+    <None Include="Resources\beaker_12x24.png" />
+    <None Include="Resources\beaker_8x16.png" />
+    <None Include="Resources\beaker_6x12.png" />
+    <None Include="Resources\beaker_4x8.png" />
+    <None Include="Resources\battery_half_32x16.png" />
+    <None Include="Resources\battery_half_24x12.png" />
+    <None Include="Resources\battery_half_16x8.png" />
+    <None Include="Resources\battery_half_12x6.png" />
+    <None Include="Resources\battery_half_8x4.png" />
+    <None Include="Resources\battery_full_32x16.png" />
+    <None Include="Resources\battery_full_24x12.png" />
+    <None Include="Resources\battery_full_16x8.png" />
+    <None Include="Resources\battery_full_12x6.png" />
+    <None Include="Resources\battery_full_8x4.png" />
+    <None Include="Resources\battery_empty_32x16.png" />
+    <None Include="Resources\battery_empty_24x12.png" />
+    <None Include="Resources\battery_empty_16x8.png" />
+    <None Include="Resources\battery_empty_12x6.png" />
+    <None Include="Resources\battery_empty_8x4.png" />
+    <None Include="Resources\battery_charging_32x16.png" />
+    <None Include="Resources\battery_charging_24x12.png" />
+    <None Include="Resources\battery_charging_16x8.png" />
+    <None Include="Resources\battery_charging_12x6.png" />
+    <None Include="Resources\battery_charging_8x4.png" />
+    <None Include="Resources\bars_alt_32x32.png" />
+    <None Include="Resources\bars_alt_24x24.png" />
+    <None Include="Resources\bars_alt_16x16.png" />
+    <None Include="Resources\bars_alt_12x12.png" />
+    <None Include="Resources\bars_alt_8x8.png" />
+    <None Include="Resources\bars_32x32.png" />
+    <None Include="Resources\bars_24x24.png" />
+    <None Include="Resources\bars_16x16.png" />
+    <None Include="Resources\bars_12x12.png" />
+    <None Include="Resources\bars_8x8.png" />
+    <None Include="Resources\award_stroke_16x32.png" />
+    <None Include="Resources\award_stroke_12x24.png" />
+    <None Include="Resources\award_stroke_8x16.png" />
+    <None Include="Resources\award_stroke_6x12.png" />
+    <None Include="Resources\award_stroke_4x8.png" />
+    <None Include="Resources\award_fill_16x32.png" />
+    <None Include="Resources\award_fill_12x24.png" />
+    <None Include="Resources\award_fill_8x16.png" />
+    <None Include="Resources\award_fill_6x12.png" />
+    <None Include="Resources\award_fill_4x8.png" />
+    <None Include="Resources\at_32x32.png" />
+    <None Include="Resources\at_24x24.png" />
+    <None Include="Resources\at_16x16.png" />
+    <None Include="Resources\at_12x12.png" />
+    <None Include="Resources\at_8x8.png" />
+    <None Include="Resources\article_32x32.png" />
+    <None Include="Resources\article_24x24.png" />
+    <None Include="Resources\article_16x16.png" />
+    <None Include="Resources\article_12x12.png" />
+    <None Include="Resources\article_8x8.png" />
+    <None Include="Resources\arrow_up_alt2_32x32.png" />
+    <None Include="Resources\arrow_up_alt2_24x24.png" />
+    <None Include="Resources\arrow_up_alt2_16x16.png" />
+    <None Include="Resources\arrow_up_alt2_12x12.png" />
+    <None Include="Resources\arrow_up_alt2_8x8.png" />
+    <None Include="Resources\arrow_up_alt1_32x32.png" />
+    <None Include="Resources\arrow_up_alt1_24x24.png" />
+    <None Include="Resources\arrow_up_alt1_16x16.png" />
+    <None Include="Resources\arrow_up_alt1_12x12.png" />
+    <None Include="Resources\arrow_up_alt1_8x8.png" />
+    <None Include="Resources\arrow_up_32x32.png" />
+    <None Include="Resources\arrow_up_24x24.png" />
+    <None Include="Resources\arrow_up_16x16.png" />
+    <None Include="Resources\arrow_up_12x12.png" />
+    <None Include="Resources\arrow_up_8x8.png" />
+    <None Include="Resources\arrow_right_alt2_32x32.png" />
+    <None Include="Resources\arrow_right_alt2_24x24.png" />
+    <None Include="Resources\arrow_right_alt2_16x16.png" />
+    <None Include="Resources\arrow_right_alt2_12x12.png" />
+    <None Include="Resources\arrow_right_alt2_8x8.png" />
+    <None Include="Resources\arrow_right_alt1_32x32.png" />
+    <None Include="Resources\arrow_right_alt1_24x24.png" />
+    <None Include="Resources\arrow_right_alt1_16x16.png" />
+    <None Include="Resources\arrow_right_alt1_12x12.png" />
+    <None Include="Resources\arrow_right_alt1_8x8.png" />
+    <None Include="Resources\arrow_right_32x32.png" />
+    <None Include="Resources\arrow_right_24x24.png" />
+    <None Include="Resources\arrow_right_16x16.png" />
+    <None Include="Resources\arrow_right_12x12.png" />
+    <None Include="Resources\arrow_right_8x8.png" />
+    <None Include="Resources\arrow_left_alt2_32x32.png" />
+    <None Include="Resources\arrow_left_alt2_24x24.png" />
+    <None Include="Resources\arrow_left_alt2_16x16.png" />
+    <None Include="Resources\arrow_left_alt2_12x12.png" />
+    <None Include="Resources\arrow_left_alt2_8x8.png" />
+    <None Include="Resources\arrow_left_alt1_32x32.png" />
+    <None Include="Resources\arrow_left_alt1_24x24.png" />
+    <None Include="Resources\arrow_left_alt1_16x16.png" />
+    <None Include="Resources\arrow_left_alt1_12x12.png" />
+    <None Include="Resources\arrow_left_alt1_8x8.png" />
+    <None Include="Resources\arrow_left_32x32.png" />
+    <None Include="Resources\arrow_left_24x24.png" />
+    <None Include="Resources\arrow_left_16x16.png" />
+    <None Include="Resources\arrow_left_12x12.png" />
+    <None Include="Resources\arrow_left_8x8.png" />
+    <None Include="Resources\arrow_down_alt2_32x32.png" />
+    <None Include="Resources\arrow_down_alt2_24x24.png" />
+    <None Include="Resources\arrow_down_alt2_16x16.png" />
+    <None Include="Resources\arrow_down_alt2_12x12.png" />
+    <None Include="Resources\arrow_down_alt2_8x8.png" />
+    <None Include="Resources\arrow_down_alt1_32x32.png" />
+    <None Include="Resources\arrow_down_alt1_24x24.png" />
+    <None Include="Resources\arrow_down_alt1_16x16.png" />
+    <None Include="Resources\arrow_down_alt1_12x12.png" />
+    <None Include="Resources\arrow_down_alt1_8x8.png" />
+    <None Include="Resources\arrow_down_32x32.png" />
+    <None Include="Resources\arrow_down_24x24.png" />
+    <None Include="Resources\arrow_down_16x16.png" />
+    <None Include="Resources\arrow_down_12x12.png" />
+    <None Include="Resources\arrow_down_8x8.png" />
+    <None Include="Resources\aperture_alt_32x32.png" />
+    <None Include="Resources\aperture_alt_24x24.png" />
+    <None Include="Resources\aperture_alt_16x16.png" />
+    <None Include="Resources\aperture_alt_12x12.png" />
+    <None Include="Resources\aperture_alt_8x8.png" />
+    <None Include="Resources\aperture_32x32.png" />
+    <None Include="Resources\aperture_24x24.png" />
+    <None Include="Resources\aperture_16x16.png" />
+    <Content Include="SysData\DataBaseModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataBaseModel.edmx</DependentUpon>
+      <LastGenOutput>DataBaseModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="SysData\DataBaseModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataBaseModel.edmx</DependentUpon>
+      <LastGenOutput>DataBaseModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

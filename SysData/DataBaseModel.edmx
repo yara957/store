@@ -1,0 +1,812 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="stor_prodsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cmpny_name" Type="varchar" MaxLength="50" />
+          <Property Name="cmpny_desc" Type="varchar" MaxLength="50" />
+          <Property Name="cmpny_addrss" Type="varchar" MaxLength="50" />
+          <Property Name="cmpny_email" Type="varchar" MaxLength="50" />
+          <Property Name="cmpny_notes" Type="ntext" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="prod_id" />
+          </Key>
+          <Property Name="prod_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="prod_aname" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="prod_ename" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="prod_type" Type="int" />
+          <Property Name="prod_desc" Type="varchar" MaxLength="500" />
+          <Property Name="prod_status" Type="int" Nullable="false" />
+          <Property Name="prod_img" Type="varchar" MaxLength="500" />
+          <Property Name="prod_othrs" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="ProductTypes">
+          <Key>
+            <PropertyRef Name="type_id" />
+          </Key>
+          <Property Name="type_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="type_name" Type="varchar" MaxLength="50" />
+          <Property Name="type_desc" Type="varchar" MaxLength="500" />
+          <Property Name="type_status" Type="int" />
+        </EntityType>
+        <EntityType Name="std_actvties">
+          <Key>
+            <PropertyRef Name="atv_id" />
+          </Key>
+          <Property Name="atv_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="actv_nm" Type="text" />
+          <Property Name="actv_strt_dt" Type="date" />
+          <Property Name="actv_end_dt" Type="date" />
+          <Property Name="actv_dtls" Type="text" />
+          <Property Name="actv_std_no" Type="int" />
+          <Property Name="actv_std_nm_lst" Type="text" />
+          <Property Name="actv_dgre" Type="int" />
+          <Property Name="actv_dgre_note" Type="text" />
+          <Property Name="actv_about" Type="text" />
+          <Property Name="actv_suprvisor" Type="text" />
+          <Property Name="actv_status" Type="int" />
+        </EntityType>
+        <EntityType Name="StorOrderDetails">
+          <Key>
+            <PropertyRef Name="rec_ser" />
+          </Key>
+          <Property Name="rec_ser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ordr_id" Type="int" Nullable="false" />
+          <Property Name="prod_id" Type="int" Nullable="false" />
+          <Property Name="prod_qt" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="storOrders">
+          <Key>
+            <PropertyRef Name="ordr_id" />
+          </Key>
+          <Property Name="ordr_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="str_id" Type="int" Nullable="false" />
+          <Property Name="ordr_dt" Type="date" />
+          <Property Name="ordr_usr" Type="int" />
+          <Property Name="ordr_dsc" Type="varchar" MaxLength="500" />
+          <Property Name="ordr_type" Type="int" Nullable="false" />
+          <Property Name="ordr_status" Type="int" Nullable="false" />
+          <Property Name="add_by" Type="int" />
+          <Property Name="add_at" Type="date" />
+          <Property Name="updt_by" Type="int" />
+          <Property Name="updt_at" Type="date" />
+        </EntityType>
+        <EntityType Name="StorProducts">
+          <Key>
+            <PropertyRef Name="rec_ser" />
+          </Key>
+          <Property Name="rec_ser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="str_id" Type="int" Nullable="false" />
+          <Property Name="prod_id" Type="int" Nullable="false" />
+          <Property Name="prod_QT" Type="int" Nullable="false" />
+          <Property Name="prod_add_dt" Type="date" />
+          <Property Name="prod_updt_dt" Type="date" />
+          <Property Name="prod_bill_id" Type="int" />
+          <Property Name="prod_othrs" Type="varchar" MaxLength="500" />
+          <Property Name="add_by" Type="int" />
+          <Property Name="updtd_by" Type="int" />
+          <Property Name="aprovd_by" Type="int" />
+        </EntityType>
+        <EntityType Name="Stors">
+          <Key>
+            <PropertyRef Name="str_id" />
+          </Key>
+          <Property Name="str_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="str_name" Type="varchar" MaxLength="50" />
+          <Property Name="str_location" Type="varchar" MaxLength="50" />
+          <Property Name="str_desc" Type="varchar" MaxLength="500" />
+          <Property Name="str_status" Type="int" />
+          <Property Name="str_opn_dt" Type="date" />
+          <Property Name="str_cls_dt" Type="date" />
+          <Property Name="str_usr_id" Type="int" />
+        </EntityType>
+        <EntityType Name="SysFlags">
+          <Key>
+            <PropertyRef Name="flg_id" />
+          </Key>
+          <Property Name="flg_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="flg_code" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="flg_value" Type="int" Nullable="false" />
+          <Property Name="flg_desc" Type="varchar" MaxLength="50" />
+          <Property Name="flg_status" Type="int" />
+          <Property Name="flg_about" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="trnrs">
+          <Key>
+            <PropertyRef Name="trnr_id" />
+          </Key>
+          <Property Name="trnr_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="trnr_nm" Type="text" />
+          <Property Name="trnr_exp" Type="text" />
+          <Property Name="trnr_major" Type="text" />
+          <Property Name="trnr_about" Type="text" />
+          <Property Name="trnr_phn" Type="text" />
+          <Property Name="trnr_status" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'stor_prods.dbo.unt_exch' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="unt_exch">
+          <Property Name="ser_id" Type="int" />
+          <Property Name="unit_id" Type="int" />
+          <Property Name="is_base" Type="int" />
+          <Property Name="qt" Type="float" />
+        </EntityType>-->
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_login" Type="varchar" MaxLength="50" />
+          <Property Name="user_pass" Type="varchar" MaxLength="50" />
+          <Property Name="user_name" Type="varchar" MaxLength="500" />
+          <Property Name="user_role" Type="varchar" MaxLength="50" />
+          <Property Name="user_status" Type="int" />
+          <Property Name="user_img" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'stor_prods.dbo.VOrdrProducts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VOrdrProducts">
+          <Key>
+            <PropertyRef Name="prod_id" />
+            <PropertyRef Name="prod_aname" />
+            <PropertyRef Name="prod_ename" />
+            <PropertyRef Name="prod_status" />
+            <PropertyRef Name="ordr_id" />
+            <PropertyRef Name="ordr_type" />
+            <PropertyRef Name="ordr_status" />
+            <PropertyRef Name="rec_ser" />
+            <PropertyRef Name="prod_qt" />
+            <PropertyRef Name="prod_price" />
+          </Key>
+          <Property Name="prod_id" Type="int" Nullable="false" />
+          <Property Name="prod_aname" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="prod_ename" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="prod_desc" Type="varchar" MaxLength="500" />
+          <Property Name="prod_status" Type="int" Nullable="false" />
+          <Property Name="type_name" Type="varchar" MaxLength="50" />
+          <Property Name="catgry_name" Type="varchar" MaxLength="50" />
+          <Property Name="ordr_id" Type="int" Nullable="false" />
+          <Property Name="ordr_dt" Type="date" />
+          <Property Name="ordr_usr" Type="int" />
+          <Property Name="ordr_dsc" Type="varchar" MaxLength="500" />
+          <Property Name="ordr_type" Type="int" Nullable="false" />
+          <Property Name="ordr_status" Type="int" Nullable="false" />
+          <Property Name="str_name" Type="varchar" MaxLength="50" />
+          <Property Name="rec_ser" Type="int" Nullable="false" />
+          <Property Name="prod_qt" Type="int" Nullable="false" />
+          <Property Name="prod_price" Type="money" Nullable="false" />
+          <Property Name="prod_exp_dt" Type="date" />
+          <Property Name="prod_im_dt" Type="date" />
+          <Property Name="ordr_stat_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'stor_prods.dbo.VStorOrdrsOnly' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VStorOrdrsOnly">
+          <Key>
+            <PropertyRef Name="ordr_id" />
+            <PropertyRef Name="str_id" />
+            <PropertyRef Name="ordr_type" />
+            <PropertyRef Name="ordr_status" />
+          </Key>
+          <Property Name="ordr_id" Type="int" Nullable="false" />
+          <Property Name="str_id" Type="int" Nullable="false" />
+          <Property Name="ordr_dt" Type="date" />
+          <Property Name="ordr_usr" Type="int" />
+          <Property Name="ordr_dsc" Type="varchar" MaxLength="500" />
+          <Property Name="ordr_status_name" Type="varchar" MaxLength="50" />
+          <Property Name="ordr_typ_name" Type="varchar" MaxLength="50" />
+          <Property Name="ordr_type" Type="int" Nullable="false" />
+          <Property Name="ordr_status" Type="int" Nullable="false" />
+          <Property Name="str_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'stor_prods.dbo.VStorProducts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VStorProducts">
+          <Key>
+            <PropertyRef Name="prod_aname" />
+            <PropertyRef Name="prod_ename" />
+            <PropertyRef Name="prod_dflt_price" />
+            <PropertyRef Name="str_id" />
+            <PropertyRef Name="prod_QT" />
+            <PropertyRef Name="prod_price" />
+          </Key>
+          <Property Name="prod_aname" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="prod_ename" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="prod_desc" Type="varchar" MaxLength="500" />
+          <Property Name="prod_dflt_price" Type="money" Nullable="false" />
+          <Property Name="type_name" Type="varchar" MaxLength="50" />
+          <Property Name="str_id" Type="int" Nullable="false" />
+          <Property Name="prod_QT" Type="int" Nullable="false" />
+          <Property Name="prod_price" Type="money" Nullable="false" />
+          <Property Name="prod_add_dt" Type="date" />
+          <Property Name="prod_othrs" Type="varchar" MaxLength="500" />
+          <Property Name="str_name" Type="varchar" MaxLength="50" />
+          <Property Name="catgry_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_StorOrderDetails_storOrders">
+          <End Role="storOrders" Type="Self.storOrders" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="StorOrderDetails" Type="Self.StorOrderDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="storOrders">
+              <PropertyRef Name="ordr_id" />
+            </Principal>
+            <Dependent Role="StorOrderDetails">
+              <PropertyRef Name="ordr_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="stor_prodsModelStoreContainer">
+          <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductTypes" EntityType="Self.ProductTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="std_actvties" EntityType="Self.std_actvties" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StorOrderDetails" EntityType="Self.StorOrderDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="storOrders" EntityType="Self.storOrders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StorProducts" EntityType="Self.StorProducts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stors" EntityType="Self.Stors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SysFlags" EntityType="Self.SysFlags" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="trnrs" EntityType="Self.trnrs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VOrdrProducts" EntityType="Self.VOrdrProducts" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VOrdrProducts].[prod_id] AS [prod_id], 
+    [VOrdrProducts].[prod_aname] AS [prod_aname], 
+    [VOrdrProducts].[prod_ename] AS [prod_ename], 
+    [VOrdrProducts].[prod_desc] AS [prod_desc], 
+    [VOrdrProducts].[prod_status] AS [prod_status], 
+    [VOrdrProducts].[type_name] AS [type_name], 
+    [VOrdrProducts].[catgry_name] AS [catgry_name], 
+    [VOrdrProducts].[ordr_id] AS [ordr_id], 
+    [VOrdrProducts].[ordr_dt] AS [ordr_dt], 
+    [VOrdrProducts].[ordr_usr] AS [ordr_usr], 
+    [VOrdrProducts].[ordr_dsc] AS [ordr_dsc], 
+    [VOrdrProducts].[ordr_type] AS [ordr_type], 
+    [VOrdrProducts].[ordr_status] AS [ordr_status], 
+    [VOrdrProducts].[str_name] AS [str_name], 
+    [VOrdrProducts].[rec_ser] AS [rec_ser], 
+    [VOrdrProducts].[prod_qt] AS [prod_qt], 
+    [VOrdrProducts].[prod_price] AS [prod_price], 
+    [VOrdrProducts].[prod_exp_dt] AS [prod_exp_dt], 
+    [VOrdrProducts].[prod_im_dt] AS [prod_im_dt], 
+    [VOrdrProducts].[ordr_stat_name] AS [ordr_stat_name]
+    FROM [dbo].[VOrdrProducts] AS [VOrdrProducts]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VStorOrdrsOnly" EntityType="Self.VStorOrdrsOnly" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VStorOrdrsOnly].[ordr_id] AS [ordr_id], 
+    [VStorOrdrsOnly].[str_id] AS [str_id], 
+    [VStorOrdrsOnly].[ordr_dt] AS [ordr_dt], 
+    [VStorOrdrsOnly].[ordr_usr] AS [ordr_usr], 
+    [VStorOrdrsOnly].[ordr_dsc] AS [ordr_dsc], 
+    [VStorOrdrsOnly].[ordr_status_name] AS [ordr_status_name], 
+    [VStorOrdrsOnly].[ordr_typ_name] AS [ordr_typ_name], 
+    [VStorOrdrsOnly].[ordr_type] AS [ordr_type], 
+    [VStorOrdrsOnly].[ordr_status] AS [ordr_status], 
+    [VStorOrdrsOnly].[str_name] AS [str_name]
+    FROM [dbo].[VStorOrdrsOnly] AS [VStorOrdrsOnly]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VStorProducts" EntityType="Self.VStorProducts" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VStorProducts].[prod_aname] AS [prod_aname], 
+    [VStorProducts].[prod_ename] AS [prod_ename], 
+    [VStorProducts].[prod_desc] AS [prod_desc], 
+    [VStorProducts].[prod_dflt_price] AS [prod_dflt_price], 
+    [VStorProducts].[type_name] AS [type_name], 
+    [VStorProducts].[str_id] AS [str_id], 
+    [VStorProducts].[prod_QT] AS [prod_QT], 
+    [VStorProducts].[prod_price] AS [prod_price], 
+    [VStorProducts].[prod_add_dt] AS [prod_add_dt], 
+    [VStorProducts].[prod_othrs] AS [prod_othrs], 
+    [VStorProducts].[str_name] AS [str_name], 
+    [VStorProducts].[catgry_name] AS [catgry_name]
+    FROM [dbo].[VStorProducts] AS [VStorProducts]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_StorOrderDetails_storOrders" Association="Self.FK_StorOrderDetails_storOrders">
+            <End Role="storOrders" EntitySet="storOrders" />
+            <End Role="StorOrderDetails" EntitySet="StorOrderDetails" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="stor_prodsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DbCntxt1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="VStorOrdrsOnlies" EntityType="stor_prodsModel.VStorOrdrsOnly" />
+          <EntitySet Name="Products" EntityType="stor_prodsModel.Product" />
+          <EntitySet Name="ProductTypes" EntityType="stor_prodsModel.ProductType" />
+          <EntitySet Name="std_actvties" EntityType="stor_prodsModel.std_actvties" />
+          <EntitySet Name="StorOrderDetails" EntityType="stor_prodsModel.StorOrderDetail" />
+          <EntitySet Name="storOrders" EntityType="stor_prodsModel.storOrder" />
+          <EntitySet Name="StorProducts" EntityType="stor_prodsModel.StorProduct" />
+          <EntitySet Name="Stors" EntityType="stor_prodsModel.Stor" />
+          <EntitySet Name="SysFlags" EntityType="stor_prodsModel.SysFlag" />
+          <EntitySet Name="Users" EntityType="stor_prodsModel.User" />
+          <EntitySet Name="VOrdrProducts" EntityType="stor_prodsModel.VOrdrProduct" />
+          <EntitySet Name="VStorProducts" EntityType="stor_prodsModel.VStorProduct" />
+          <AssociationSet Name="FK_StorOrderDetails_storOrders" Association="stor_prodsModel.FK_StorOrderDetails_storOrders">
+            <End Role="storOrder" EntitySet="storOrders" />
+            <End Role="StorOrderDetail" EntitySet="StorOrderDetails" />
+          </AssociationSet>
+          <EntitySet Name="Companies" EntityType="stor_prodsModel.Company" />
+          <EntitySet Name="trnrs" EntityType="stor_prodsModel.trnr" />
+        </EntityContainer>
+        <EntityType Name="VStorOrdrsOnly">
+          <Key>
+            <PropertyRef Name="ordr_id" />
+            <PropertyRef Name="str_id" />
+            <PropertyRef Name="ordr_type" />
+            <PropertyRef Name="ordr_status" />
+          </Key>
+          <Property Name="ordr_id" Type="Int32" Nullable="false" />
+          <Property Name="str_id" Type="Int32" Nullable="false" />
+          <Property Name="ordr_dt" Type="DateTime" Precision="0" />
+          <Property Name="ordr_usr" Type="Int32" />
+          <Property Name="ordr_dsc" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ordr_status_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ordr_typ_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ordr_type" Type="Int32" Nullable="false" />
+          <Property Name="ordr_status" Type="Int32" Nullable="false" />
+          <Property Name="str_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="prod_id" />
+          </Key>
+          <Property Name="prod_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="prod_aname" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="prod_ename" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="prod_type" Type="Int32" />
+          <Property Name="prod_desc" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="prod_status" Type="Int32" Nullable="false" />
+          <Property Name="prod_img" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="prod_othrs" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ProductType">
+          <Key>
+            <PropertyRef Name="type_id" />
+          </Key>
+          <Property Name="type_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="type_desc" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="type_status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="std_actvties">
+          <Key>
+            <PropertyRef Name="atv_id" />
+          </Key>
+          <Property Name="atv_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="actv_nm" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="actv_strt_dt" Type="DateTime" Precision="0" />
+          <Property Name="actv_end_dt" Type="DateTime" Precision="0" />
+          <Property Name="actv_dtls" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="actv_std_no" Type="Int32" />
+          <Property Name="actv_std_nm_lst" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="actv_dgre" Type="Int32" />
+          <Property Name="actv_dgre_note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="actv_about" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="actv_suprvisor" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="actv_status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="StorOrderDetail">
+          <Key>
+            <PropertyRef Name="rec_ser" />
+          </Key>
+          <Property Name="rec_ser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ordr_id" Type="Int32" Nullable="false" />
+          <Property Name="prod_id" Type="Int32" Nullable="false" />
+          <Property Name="prod_qt" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="storOrder" Relationship="stor_prodsModel.FK_StorOrderDetails_storOrders" FromRole="StorOrderDetail" ToRole="storOrder" />
+        </EntityType>
+        <EntityType Name="storOrder">
+          <Key>
+            <PropertyRef Name="ordr_id" />
+          </Key>
+          <Property Name="ordr_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="str_id" Type="Int32" Nullable="false" />
+          <Property Name="ordr_dt" Type="DateTime" Precision="0" />
+          <Property Name="ordr_usr" Type="Int32" />
+          <Property Name="ordr_dsc" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ordr_type" Type="Int32" Nullable="false" />
+          <Property Name="ordr_status" Type="Int32" Nullable="false" />
+          <Property Name="add_by" Type="Int32" />
+          <Property Name="add_at" Type="DateTime" Precision="0" />
+          <Property Name="updt_by" Type="Int32" />
+          <Property Name="updt_at" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="StorOrderDetails" Relationship="stor_prodsModel.FK_StorOrderDetails_storOrders" FromRole="storOrder" ToRole="StorOrderDetail" />
+        </EntityType>
+        <EntityType Name="StorProduct">
+          <Key>
+            <PropertyRef Name="rec_ser" />
+          </Key>
+          <Property Name="rec_ser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="str_id" Type="Int32" Nullable="false" />
+          <Property Name="prod_id" Type="Int32" Nullable="false" />
+          <Property Name="prod_QT" Type="Int32" Nullable="false" />
+          <Property Name="prod_add_dt" Type="DateTime" Precision="0" />
+          <Property Name="prod_updt_dt" Type="DateTime" Precision="0" />
+          <Property Name="prod_bill_id" Type="Int32" />
+          <Property Name="prod_othrs" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="add_by" Type="Int32" />
+          <Property Name="updtd_by" Type="Int32" />
+          <Property Name="aprovd_by" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Stor">
+          <Key>
+            <PropertyRef Name="str_id" />
+          </Key>
+          <Property Name="str_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="str_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="str_location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="str_desc" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="str_status" Type="Int32" />
+          <Property Name="str_opn_dt" Type="DateTime" Precision="0" />
+          <Property Name="str_cls_dt" Type="DateTime" Precision="0" />
+          <Property Name="str_usr_id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SysFlag">
+          <Key>
+            <PropertyRef Name="flg_id" />
+          </Key>
+          <Property Name="flg_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="flg_code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="flg_value" Type="Int32" Nullable="false" />
+          <Property Name="flg_desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="flg_status" Type="Int32" />
+          <Property Name="flg_about" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="user_role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_status" Type="Int32" />
+          <Property Name="user_img" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="VOrdrProduct">
+          <Key>
+            <PropertyRef Name="prod_id" />
+            <PropertyRef Name="prod_aname" />
+            <PropertyRef Name="prod_ename" />
+            <PropertyRef Name="prod_status" />
+            <PropertyRef Name="ordr_id" />
+            <PropertyRef Name="ordr_type" />
+            <PropertyRef Name="ordr_status" />
+            <PropertyRef Name="rec_ser" />
+            <PropertyRef Name="prod_qt" />
+            <PropertyRef Name="prod_price" />
+          </Key>
+          <Property Name="prod_id" Type="Int32" Nullable="false" />
+          <Property Name="prod_aname" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="prod_ename" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="prod_desc" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="prod_status" Type="Int32" Nullable="false" />
+          <Property Name="type_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="catgry_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ordr_id" Type="Int32" Nullable="false" />
+          <Property Name="ordr_dt" Type="DateTime" Precision="0" />
+          <Property Name="ordr_usr" Type="Int32" />
+          <Property Name="ordr_dsc" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ordr_type" Type="Int32" Nullable="false" />
+          <Property Name="ordr_status" Type="Int32" Nullable="false" />
+          <Property Name="str_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="rec_ser" Type="Int32" Nullable="false" />
+          <Property Name="prod_qt" Type="Int32" Nullable="false" />
+          <Property Name="prod_price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="prod_exp_dt" Type="DateTime" Precision="0" />
+          <Property Name="prod_im_dt" Type="DateTime" Precision="0" />
+          <Property Name="ordr_stat_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="VStorProduct">
+          <Key>
+            <PropertyRef Name="prod_aname" />
+            <PropertyRef Name="prod_ename" />
+            <PropertyRef Name="prod_dflt_price" />
+            <PropertyRef Name="str_id" />
+            <PropertyRef Name="prod_QT" />
+            <PropertyRef Name="prod_price" />
+          </Key>
+          <Property Name="prod_aname" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="prod_ename" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="prod_desc" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="prod_dflt_price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="type_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="str_id" Type="Int32" Nullable="false" />
+          <Property Name="prod_QT" Type="Int32" Nullable="false" />
+          <Property Name="prod_price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="prod_add_dt" Type="DateTime" Precision="0" />
+          <Property Name="prod_othrs" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="str_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="catgry_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_StorOrderDetails_storOrders">
+          <End Type="stor_prodsModel.storOrder" Role="storOrder" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="stor_prodsModel.StorOrderDetail" Role="StorOrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="storOrder">
+              <PropertyRef Name="ordr_id" />
+            </Principal>
+            <Dependent Role="StorOrderDetail">
+              <PropertyRef Name="ordr_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cmpny_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cmpny_desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cmpny_addrss" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cmpny_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cmpny_notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="trnr">
+          <Key>
+            <PropertyRef Name="trnr_id" />
+          </Key>
+          <Property Name="trnr_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="trnr_nm" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="trnr_exp" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="trnr_major" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="trnr_about" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="trnr_phn" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="trnr_status" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="stor_prodsModelStoreContainer" CdmEntityContainer="DbCntxt1">
+          <EntitySetMapping Name="VStorOrdrsOnlies">
+            <EntityTypeMapping TypeName="stor_prodsModel.VStorOrdrsOnly">
+              <MappingFragment StoreEntitySet="VStorOrdrsOnly">
+                <ScalarProperty Name="str_name" ColumnName="str_name" />
+                <ScalarProperty Name="ordr_status" ColumnName="ordr_status" />
+                <ScalarProperty Name="ordr_type" ColumnName="ordr_type" />
+                <ScalarProperty Name="ordr_typ_name" ColumnName="ordr_typ_name" />
+                <ScalarProperty Name="ordr_status_name" ColumnName="ordr_status_name" />
+                <ScalarProperty Name="ordr_dsc" ColumnName="ordr_dsc" />
+                <ScalarProperty Name="ordr_usr" ColumnName="ordr_usr" />
+                <ScalarProperty Name="ordr_dt" ColumnName="ordr_dt" />
+                <ScalarProperty Name="str_id" ColumnName="str_id" />
+                <ScalarProperty Name="ordr_id" ColumnName="ordr_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="stor_prodsModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="prod_othrs" ColumnName="prod_othrs" />
+                <ScalarProperty Name="prod_img" ColumnName="prod_img" />
+                <ScalarProperty Name="prod_status" ColumnName="prod_status" />
+                <ScalarProperty Name="prod_desc" ColumnName="prod_desc" />
+                <ScalarProperty Name="prod_type" ColumnName="prod_type" />
+                <ScalarProperty Name="prod_ename" ColumnName="prod_ename" />
+                <ScalarProperty Name="prod_aname" ColumnName="prod_aname" />
+                <ScalarProperty Name="prod_id" ColumnName="prod_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductTypes">
+            <EntityTypeMapping TypeName="stor_prodsModel.ProductType">
+              <MappingFragment StoreEntitySet="ProductTypes">
+                <ScalarProperty Name="type_status" ColumnName="type_status" />
+                <ScalarProperty Name="type_desc" ColumnName="type_desc" />
+                <ScalarProperty Name="type_name" ColumnName="type_name" />
+                <ScalarProperty Name="type_id" ColumnName="type_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="std_actvties">
+            <EntityTypeMapping TypeName="stor_prodsModel.std_actvties">
+              <MappingFragment StoreEntitySet="std_actvties">
+                <ScalarProperty Name="actv_status" ColumnName="actv_status" />
+                <ScalarProperty Name="actv_suprvisor" ColumnName="actv_suprvisor" />
+                <ScalarProperty Name="actv_about" ColumnName="actv_about" />
+                <ScalarProperty Name="actv_dgre_note" ColumnName="actv_dgre_note" />
+                <ScalarProperty Name="actv_dgre" ColumnName="actv_dgre" />
+                <ScalarProperty Name="actv_std_nm_lst" ColumnName="actv_std_nm_lst" />
+                <ScalarProperty Name="actv_std_no" ColumnName="actv_std_no" />
+                <ScalarProperty Name="actv_dtls" ColumnName="actv_dtls" />
+                <ScalarProperty Name="actv_end_dt" ColumnName="actv_end_dt" />
+                <ScalarProperty Name="actv_strt_dt" ColumnName="actv_strt_dt" />
+                <ScalarProperty Name="actv_nm" ColumnName="actv_nm" />
+                <ScalarProperty Name="atv_id" ColumnName="atv_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StorOrderDetails">
+            <EntityTypeMapping TypeName="stor_prodsModel.StorOrderDetail">
+              <MappingFragment StoreEntitySet="StorOrderDetails">
+                <ScalarProperty Name="prod_qt" ColumnName="prod_qt" />
+                <ScalarProperty Name="prod_id" ColumnName="prod_id" />
+                <ScalarProperty Name="ordr_id" ColumnName="ordr_id" />
+                <ScalarProperty Name="rec_ser" ColumnName="rec_ser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="storOrders">
+            <EntityTypeMapping TypeName="stor_prodsModel.storOrder">
+              <MappingFragment StoreEntitySet="storOrders">
+                <ScalarProperty Name="updt_at" ColumnName="updt_at" />
+                <ScalarProperty Name="updt_by" ColumnName="updt_by" />
+                <ScalarProperty Name="add_at" ColumnName="add_at" />
+                <ScalarProperty Name="add_by" ColumnName="add_by" />
+                <ScalarProperty Name="ordr_status" ColumnName="ordr_status" />
+                <ScalarProperty Name="ordr_type" ColumnName="ordr_type" />
+                <ScalarProperty Name="ordr_dsc" ColumnName="ordr_dsc" />
+                <ScalarProperty Name="ordr_usr" ColumnName="ordr_usr" />
+                <ScalarProperty Name="ordr_dt" ColumnName="ordr_dt" />
+                <ScalarProperty Name="str_id" ColumnName="str_id" />
+                <ScalarProperty Name="ordr_id" ColumnName="ordr_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StorProducts">
+            <EntityTypeMapping TypeName="stor_prodsModel.StorProduct">
+              <MappingFragment StoreEntitySet="StorProducts">
+                <ScalarProperty Name="aprovd_by" ColumnName="aprovd_by" />
+                <ScalarProperty Name="updtd_by" ColumnName="updtd_by" />
+                <ScalarProperty Name="add_by" ColumnName="add_by" />
+                <ScalarProperty Name="prod_othrs" ColumnName="prod_othrs" />
+                <ScalarProperty Name="prod_bill_id" ColumnName="prod_bill_id" />
+                <ScalarProperty Name="prod_updt_dt" ColumnName="prod_updt_dt" />
+                <ScalarProperty Name="prod_add_dt" ColumnName="prod_add_dt" />
+                <ScalarProperty Name="prod_QT" ColumnName="prod_QT" />
+                <ScalarProperty Name="prod_id" ColumnName="prod_id" />
+                <ScalarProperty Name="str_id" ColumnName="str_id" />
+                <ScalarProperty Name="rec_ser" ColumnName="rec_ser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stors">
+            <EntityTypeMapping TypeName="stor_prodsModel.Stor">
+              <MappingFragment StoreEntitySet="Stors">
+                <ScalarProperty Name="str_usr_id" ColumnName="str_usr_id" />
+                <ScalarProperty Name="str_cls_dt" ColumnName="str_cls_dt" />
+                <ScalarProperty Name="str_opn_dt" ColumnName="str_opn_dt" />
+                <ScalarProperty Name="str_status" ColumnName="str_status" />
+                <ScalarProperty Name="str_desc" ColumnName="str_desc" />
+                <ScalarProperty Name="str_location" ColumnName="str_location" />
+                <ScalarProperty Name="str_name" ColumnName="str_name" />
+                <ScalarProperty Name="str_id" ColumnName="str_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SysFlags">
+            <EntityTypeMapping TypeName="stor_prodsModel.SysFlag">
+              <MappingFragment StoreEntitySet="SysFlags">
+                <ScalarProperty Name="flg_about" ColumnName="flg_about" />
+                <ScalarProperty Name="flg_status" ColumnName="flg_status" />
+                <ScalarProperty Name="flg_desc" ColumnName="flg_desc" />
+                <ScalarProperty Name="flg_value" ColumnName="flg_value" />
+                <ScalarProperty Name="flg_code" ColumnName="flg_code" />
+                <ScalarProperty Name="flg_id" ColumnName="flg_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="stor_prodsModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="user_img" ColumnName="user_img" />
+                <ScalarProperty Name="user_status" ColumnName="user_status" />
+                <ScalarProperty Name="user_role" ColumnName="user_role" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="user_pass" ColumnName="user_pass" />
+                <ScalarProperty Name="user_login" ColumnName="user_login" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VOrdrProducts">
+            <EntityTypeMapping TypeName="stor_prodsModel.VOrdrProduct">
+              <MappingFragment StoreEntitySet="VOrdrProducts">
+                <ScalarProperty Name="ordr_stat_name" ColumnName="ordr_stat_name" />
+                <ScalarProperty Name="prod_im_dt" ColumnName="prod_im_dt" />
+                <ScalarProperty Name="prod_exp_dt" ColumnName="prod_exp_dt" />
+                <ScalarProperty Name="prod_price" ColumnName="prod_price" />
+                <ScalarProperty Name="prod_qt" ColumnName="prod_qt" />
+                <ScalarProperty Name="rec_ser" ColumnName="rec_ser" />
+                <ScalarProperty Name="str_name" ColumnName="str_name" />
+                <ScalarProperty Name="ordr_status" ColumnName="ordr_status" />
+                <ScalarProperty Name="ordr_type" ColumnName="ordr_type" />
+                <ScalarProperty Name="ordr_dsc" ColumnName="ordr_dsc" />
+                <ScalarProperty Name="ordr_usr" ColumnName="ordr_usr" />
+                <ScalarProperty Name="ordr_dt" ColumnName="ordr_dt" />
+                <ScalarProperty Name="ordr_id" ColumnName="ordr_id" />
+                <ScalarProperty Name="catgry_name" ColumnName="catgry_name" />
+                <ScalarProperty Name="type_name" ColumnName="type_name" />
+                <ScalarProperty Name="prod_status" ColumnName="prod_status" />
+                <ScalarProperty Name="prod_desc" ColumnName="prod_desc" />
+                <ScalarProperty Name="prod_ename" ColumnName="prod_ename" />
+                <ScalarProperty Name="prod_aname" ColumnName="prod_aname" />
+                <ScalarProperty Name="prod_id" ColumnName="prod_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VStorProducts">
+            <EntityTypeMapping TypeName="stor_prodsModel.VStorProduct">
+              <MappingFragment StoreEntitySet="VStorProducts">
+                <ScalarProperty Name="catgry_name" ColumnName="catgry_name" />
+                <ScalarProperty Name="str_name" ColumnName="str_name" />
+                <ScalarProperty Name="prod_othrs" ColumnName="prod_othrs" />
+                <ScalarProperty Name="prod_add_dt" ColumnName="prod_add_dt" />
+                <ScalarProperty Name="prod_price" ColumnName="prod_price" />
+                <ScalarProperty Name="prod_QT" ColumnName="prod_QT" />
+                <ScalarProperty Name="str_id" ColumnName="str_id" />
+                <ScalarProperty Name="type_name" ColumnName="type_name" />
+                <ScalarProperty Name="prod_dflt_price" ColumnName="prod_dflt_price" />
+                <ScalarProperty Name="prod_desc" ColumnName="prod_desc" />
+                <ScalarProperty Name="prod_ename" ColumnName="prod_ename" />
+                <ScalarProperty Name="prod_aname" ColumnName="prod_aname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="stor_prodsModel.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="cmpny_notes" ColumnName="cmpny_notes" />
+                <ScalarProperty Name="cmpny_email" ColumnName="cmpny_email" />
+                <ScalarProperty Name="cmpny_addrss" ColumnName="cmpny_addrss" />
+                <ScalarProperty Name="cmpny_desc" ColumnName="cmpny_desc" />
+                <ScalarProperty Name="cmpny_name" ColumnName="cmpny_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="trnrs">
+            <EntityTypeMapping TypeName="stor_prodsModel.trnr">
+              <MappingFragment StoreEntitySet="trnrs">
+                <ScalarProperty Name="trnr_status" ColumnName="trnr_status" />
+                <ScalarProperty Name="trnr_phn" ColumnName="trnr_phn" />
+                <ScalarProperty Name="trnr_about" ColumnName="trnr_about" />
+                <ScalarProperty Name="trnr_major" ColumnName="trnr_major" />
+                <ScalarProperty Name="trnr_exp" ColumnName="trnr_exp" />
+                <ScalarProperty Name="trnr_nm" ColumnName="trnr_nm" />
+                <ScalarProperty Name="trnr_id" ColumnName="trnr_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
